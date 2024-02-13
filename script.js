@@ -1,4 +1,4 @@
-const containerElement = document.querySelector('#container');
+const rowElement = document.querySelector('#row');
 
 const teamMembers = [
     {
@@ -36,20 +36,25 @@ const teamMembers = [
 for (i = 0; i < teamMembers.length; i++){
     const eachMember = teamMembers[i];
 
-    let singleMember = '';
+    
+    const newCardElement = document.createElement('div');
+
+    const memberInfo = document.createElement('div');
     
     for(let key in eachMember){
         console.log(eachMember[key]);
 
         if(key == 'photo'){
-            singleMember += `<img src="./img/${eachMember[key]}">`
+            const photoElement = document.createElement('img');
+            photoElement.setAttribute('src', `./img/${eachMember[key]}`);
+            newCardElement.prepend(photoElement);
         }else{
-            singleMember += `<div>${eachMember[key]}</div>`;
+            memberInfo.innerHTML += `<div>${eachMember[key]}</div>`;
         }
         
     };
 
-    const newElement = document.createElement('div');
-    newElement.innerHTML = singleMember;
-    containerElement.append(newElement);
+    
+    newCardElement.append(memberInfo);
+    rowElement.append(newCardElement);
 };
