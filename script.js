@@ -29,6 +29,12 @@ const teamMembers = [
         role: 'Graphic Designer',
         photo: 'barbara-ramos-graphic-designer.jpg',
     },
-]
+];
 
-console.log(teamMembers)
+for (i = 0; i < teamMembers.length; i++){
+    const singleMember = teamMembers[i];
+
+    for(let key in singleMember){
+        console.log(`${key}: ${singleMember[key]}`);
+    };
+};
