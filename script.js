@@ -9,7 +9,7 @@ const teamMembers = [
     {
         name: 'Angela Caroll',
         role: 'Chief Editor',
-        photo: 'angel-caroll-chief-editor.jpg',
+        photo: 'angela-caroll-chief-editor.jpg',
     },
     {
         name: 'Walter Gordon',
@@ -40,7 +40,13 @@ for (i = 0; i < teamMembers.length; i++){
     
     for(let key in eachMember){
         console.log(eachMember[key]);
-        singleMember += `<div>${eachMember[key]}</div>`;
+
+        if(key == 'photo'){
+            singleMember += `<img src="./img/${eachMember[key]}">`
+        }else{
+            singleMember += `<div>${eachMember[key]}</div>`;
+        }
+        
     };
 
     const newElement = document.createElement('div');
