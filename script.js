@@ -36,10 +36,14 @@ const teamMembers = [
 for (i = 0; i < teamMembers.length; i++){
     const eachMember = teamMembers[i];
 
-    
+    const newColElement = document.createElement('div')
+    newColElement.classList.add('col');
+
     const newCardElement = document.createElement('div');
+    newCardElement.classList.add('card', 'h-100', 'rounded-0')
 
     const memberInfo = document.createElement('div');
+    memberInfo.classList.add('card-body', 'text-center')
     
     for(let key in eachMember){
         console.log(eachMember[key]);
@@ -47,6 +51,7 @@ for (i = 0; i < teamMembers.length; i++){
         if(key == 'photo'){
             const photoElement = document.createElement('img');
             photoElement.setAttribute('src', `./img/${eachMember[key]}`);
+            photoElement.classList.add('card-img-top', 'rounded-0')
             newCardElement.prepend(photoElement);
         }else{
             memberInfo.innerHTML += `<div>${eachMember[key]}</div>`;
@@ -56,5 +61,7 @@ for (i = 0; i < teamMembers.length; i++){
 
     
     newCardElement.append(memberInfo);
-    rowElement.append(newCardElement);
+    newColElement.append(newCardElement);
+    rowElement.append(newColElement);
+
 };
