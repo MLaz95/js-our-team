@@ -1,3 +1,5 @@
+const containerElement = document.querySelector('#container');
+
 const teamMembers = [
     {
         name: 'Wayne Barnett',
@@ -32,9 +34,16 @@ const teamMembers = [
 ];
 
 for (i = 0; i < teamMembers.length; i++){
-    const singleMember = teamMembers[i];
+    const eachMember = teamMembers[i];
 
-    for(let key in singleMember){
-        console.log(`${key}: ${singleMember[key]}`);
+    let singleMember = '';
+    
+    for(let key in eachMember){
+        console.log(eachMember[key]);
+        singleMember += `<div>${eachMember[key]}</div>`;
     };
+
+    const newElement = document.createElement('div');
+    newElement.innerHTML = singleMember;
+    containerElement.append(newElement);
 };
